@@ -7,7 +7,7 @@ export const fetchAllPokemon = () => {
   );
 };
 
-export const fetchOnePokemon = (id) => {
+export const fetchOnePoke = (id) => {
   return (
     $.ajax({
       method: "GET",

@@ -1,8 +1,8 @@
 
-import { fetchAllPokemon, fetchOnePokemon } from '../util/api_util';
+import { fetchAllPokemon, fetchOnePoke } from '../util/api_util';
 
 export const RECEIVE_ALL_POKEMON = "RECEIVE_ALL_POKEMON";
-export const RECEIVE_ONE_POKEMON = "RECEIVE_ONE_POKEMON";
+export const RECEIVE_ONE_POKE = "RECEIVE_ONE_POKE";
 
 export const receiveAllPokemon = pokemon => ({
   type: RECEIVE_ALL_POKEMON,
@@ -14,12 +14,12 @@ export const requestAllPokemon = () => (dispatch) => {
     .then(pokemon => dispatch(receiveAllPokemon(pokemon)));
 };
 
-export const receiveOnePokemon = pokemon =>({
-  type: RECEIVE_ONE_POKEMON,
-  pokemon
+export const receiveOnePoke = poke =>({
+  type: RECEIVE_ONE_POKE,
+  poke
 });
 
-export const requestOnePokemon = () => (dispatch) => {
-  return fetchOnePokemon()
-    .then(pokemon => dispatch(receiveOnePokemon(pokemon)));
+export const requestOnePoke = (id) => (dispatch) => {
+  return fetchOnePoke(id)
+    .then(poke => dispatch(receiveOnePoke(poke)));
 };

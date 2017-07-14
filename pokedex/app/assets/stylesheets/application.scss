@@ -21,8 +21,8 @@ html {
 
 body {
   font-family: sans-serif;
-  background: white;
-  color: $grey;
+  background: #57FF77;
+  color: $black;
   font-size: 12px;
   height: 100%;
 }
@@ -101,4 +101,47 @@ h3 {
   font-size: 24px;
   text-align: center;
   color: $black;
+}
+
+.poke-index {
+  display: flex;
+  justify-content: space-around;
+}
+
+.pokemon_list {
+  background-color: black;
+  border: 2px solid white;
+  padding: 10px;
+  margin: 10px;
+  list-style: none;
+}
+
+.poke-individual {
+  background-color: #B2ACA4;
+  border: 1px solid red;
+  padding: 5px;
+  margin: 10px;
+}
+.poke-detail {
+  height: 1000px;
+  border: 2px solid white;
+  background-color: #CC8432;
+  display: flex;
+  flex-direction: column;
+}
+.poke-personal{
+  display: flex;
+  flex-direction: column;
+}
+
+.item-detail{
+  display: flex;
+  flex-direction: column;
+  border: 1px solid red;
+  padding: 5px;
+  margin: 10px;
+}
+
+h1 {
+  text-align: center;
 }

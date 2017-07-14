@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 class PokemonIndexItem extends React.Component {
   constructor (props) {
     super(props);
+    console.log(props);
   }
 
   symbolURL (){
@@ -12,11 +13,11 @@ class PokemonIndexItem extends React.Component {
 
   render() {
     return (
-      <li key={this.props.pokemon.id}>
+      <li className="poke-individual" key={this.props.pokemon.id}>
         <Link to={this.symbolURL()}>
         <img src={this.props.pokemon.image_url} height="42" width="42"/>
         <br/>
-        name = {this.props.pokemon.name}
+        Name: {this.props.pokemon.name}
         </Link>
       </li>
     );

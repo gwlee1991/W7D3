@@ -1,6 +1,8 @@
 import PokemonIndexItem from './pokemon_index_item';
-import { HashRouter, Route } from 'react-router-dom';
+import { NavLink, HashRouter, Route } from 'react-router-dom';
 import React from 'react';
+import PokemonDetailContainer from './pokemon_detail_container';
+import {requestOnePoke} from "../../actions/pokemon_actions";
 
 class pokemonIndex extends React.Component
 {
@@ -12,41 +14,35 @@ class pokemonIndex extends React.Component
     this.props.requestAllPokemon();
   }
 
-  createPokemonListItem(pokemon){
-    return(
-      <li key={pokemon.id}>name={pokemon.name}
-        <img src={pokemon.image_url} height="42" width="42"/>
-      </li>
+  createRoute(id){
+    let mypath="/pokemon/"+id;
+    return (
+      <Route key={id*-1} path={mypath} component={PokemonDetailContainer} />
     );
   }
 
-  createRoute(id){
-    let mypath="/pokemon/"+id;
-    return (<Route key={id*-1} path={mypath} component={ ()=>PokemonIndexItem } />);
-  }
-
   render(){
+    console.log(this.props);
     const routes = this.props.pokemon.map(poke =>(
       this.createRoute(poke.id))
     );
     const pokemonItems = this.props.pokemon.map(poke => (
       <PokemonIndexItem key={poke.id} pokemon={poke} />)
+
     );
     return (
       <div>
-        "Index of Pokemon"
-        <ul className="pokemon_list">
-          {pokemonItems}
-        </ul>
-
-          {routes}
-
-
-
+        <h1>Best Pokemon Project Ever</h1>
+        <div className="poke-index">
+          <ul className="pokemon_list">
+            {pokemonItems}
+          </ul>
+          <Route path="/pokemon/:pokemonId" component={PokemonDetailContainer} />
+        </div>
       </div>
     );
   }
 }
-
+// props.match.params.pokemonId
 
 export default pokemonIndex;
